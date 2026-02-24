@@ -721,6 +721,7 @@ a:focus {
 .footer-container {
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
     align-items: baseline;
     column-gap: 0;
     flex-grow: 0;
@@ -753,7 +754,7 @@ a:focus {
 
 /* #endregion footer */
 
-
+/* #region telegram button */
 
 .telegram-button {
     display: flex;
@@ -776,7 +777,7 @@ a:focus {
 
 .telegram-button:hover,
 .telegram-button:focus {
-    background-color: #404bbf;
+    background-color: #31d0aa;
 }
 
 .footer-input {
@@ -791,6 +792,7 @@ a:focus {
 .footer-subscribe {
     display: flex;
     flex-direction: column;
+    margin-left: auto;
 }
 
 .footer-subscribe-title {
@@ -819,13 +821,22 @@ a:focus {
     line-height: 2;
     letter-spacing: 0.04em;
     color: #ffffff;
+    outline: transparent;
+    transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.footer-subscribe-input:focus,
+.footer-subscribe-input:hover {
+    border-color: #31d0aa;
 }
 
 .footer-subscribe-input::placeholder {
     color: #ffffff;
 }
 
-/* #region modal */
+/* #endregion telegram button */
+
+/* #region backdrop */
 
 .backdrop {
     position: fixed;
@@ -980,6 +991,8 @@ a:focus {
 }
 
 .modal-check-label {
+    display: flex;
+    align-items: center;
     font-size: 12px;
     line-height: 1.17;
     letter-spacing: 0.04em;
@@ -987,7 +1000,8 @@ a:focus {
 }
 
 .modal-check-custom {
-    display: inline-flex;
+    display: flex;
+    position: relative;
     width: 16px;
     height: 16px;
     border: 1px solid rgba(46, 47, 66, 0.4);
@@ -996,22 +1010,26 @@ a:focus {
     align-items: center;
     justify-content: center;
     fill: transparent;
+    flex-shrink: 0;
     transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), border 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .modal-check:checked + .modal-check-label .modal-check-custom {
     background-color: #404bbf;
-    border: none;
-    position: relative;
+    border-color: #404bbf;
 }
 
 .modal-check:checked + .modal-check-label .modal-check-custom::after {
     content: "";
-    width: 8px;
-    height: 4px;
+    position: absolute;
+    width: 10px;
+    height: 5px;
     border-left: 2px solid #f4f4fd;
     border-bottom: 2px solid #f4f4fd;
     transform: rotate(-45deg);
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-45deg);
 }
 
 .modal-policy-link {
@@ -1044,5 +1062,5 @@ a:focus {
     background-color: #404bbf;
 }
 
-/* #endregion modal */
+/* #endregion backdrop */
 
